@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drishyam - See the World</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <img src="logo.webp" alt="Drishyam Logo" class="logo">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li id="loginBtn"><a href="#" onclick="googleLogin()">Login with Google</a></li>
+            <li id="logoutBtn" class="hidden"><a href="#" onclick="logout()">Logout</a></li>
+            <li><button id="darkModeToggle">🌙</button></li>
+        </ul>
+    </nav>
+
+    <!-- Profile Section -->
+    <div id="profile-page" class="hidden">
+        <h2>Welcome, <span id="profile-username"></span>!</h2>
+        <img id="profile-pic" class="hidden" width="100" style="border-radius: 50%;">
+        <button onclick="editProfile()">Edit Profile</button>
+    </div>
+
+    <!-- Stories Section -->
+    <div class="stories-container">
+        <h3>Stories</h3>
+        <div id="stories"></div>
+        <input type="file" id="storyUpload" accept="image/*">
+        <button onclick="uploadStory()">Add Story</button>
+    </div>
+
+    <!-- Upload Post -->
+    <div class="upload-section">
+        <input type="file" id="fileUpload" accept="image/*">
+        <input type="text" id="caption" placeholder="Write a caption...">
+        <button onclick="uploadImage()">Upload Post</button>
+    </div>
+
+    <!-- Feed Section -->
+    <div id="feed"></div>
+
+    <!-- Chat Section -->
+    <div id="chat-container">
+        <h3>Live Chat</h3>
+        <div id="chat-box"></div>
+        <input type="text" id="chatMessage" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
